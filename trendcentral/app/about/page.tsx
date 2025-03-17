@@ -1,44 +1,41 @@
-import Image from "../components/Image"; 
-import ProfileInfo from "../components/ProfileInfo";
-import SocialLinks from "../components/SocialLinks";
+// pages/about.tsx
+'use client';
+
+import { useState } from 'react';
+import ProfileInfo from '../components/ProfileInfo';
+import Tabs from '../components/Tabs';
+import TabContent from '../components/TabContent';
 
 const About: React.FC = () => {
+  const [activeTab, setActiveTab] = useState('About Me');
+
   const user = {
-    name: "Sampath",
-    email: "sampath@example.com",
-    phone: "+1234567890",
-    location: "San Francisco, CA",
-    avatar: 'https://media.licdn.com/dms/image/D5603AQEFCrXSnD7rzw/profile-displayphoto-shrink_200_200/0/1700229637852?e=2147483647&v=beta&t=Y8u-m_smEdQJTJKnTdtKlmkcN3x4gcIWB4dE9BCWgBc',
+    name: 'Sampath',
+    email: 'sampath@example.com',
+    phone: '+1234567890',
+    location: 'San Francisco, CA',
+    avatar:
+      'https://media.licdn.com/dms/image/D5603AQEFCrXSnD7rzw/profile-displayphoto-shrink_200_200/0/1700229637852?e=2147483647&v=beta&t=Y8u-m_smEdQJTJKnTdtKlmkcN3x4gcIWB4dE9BCWgBc',
   };
 
-  const socialLinks = [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/sampath" },
-    { name: "GitHub", url: "https://github.com/sampath" },
-    { name: "Portfolio", url: "https://www.sampath.dev" },
-  ];
-
   return (
-    <section className="max-w-4xl mx-auto p-6">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-800">About Me</h1>
-        <p className="mt-4 text-lg text-gray-600">My name is {user.name}.</p>
-        <div className="mt-6">
-          <Image
-            src={user.avatar}
-            alt="Profile pic"
-            style={{ height: "300px", width: "250px" }}
-          />
-        </div>
+    <section className="flex flex-col md:flex-row max-w-7xl mx-auto p-6 space-y-8 md:space-y-0">
+      {/* Left Side: Profile Info */}
+      <div className="md:w-1/3">
+        <ProfileInfo
+          name={user.name}
+          email={user.email}
+          phone={user.phone}
+          location={user.location}
+          avatar={user.avatar}
+        />
       </div>
 
-      <ProfileInfo
-        name={user.name}
-        email={user.email}
-        phone={user.phone}
-        location={user.location}
-      />
-
-      <SocialLinks links={socialLinks} />
+      {/* Right Side: Tabs and Content */}
+      <div className="md:w-2/3">
+        <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
+        <TabContent activeTab={activeTab} />
+      </div>
     </section>
   );
 };
