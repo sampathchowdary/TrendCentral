@@ -1,8 +1,9 @@
 'use client';  // Add this directive for client-side rendering
 
 import { useState } from 'react';
-import GameList from "../components/playground/GameList"; // You need to create this component
-import GamePlayground from "../components/playground/GamePlayground"; // You need to create this component
+
+import GameList from "../components/playground/GameList";
+import GamePlayground from "../components/playground/GamePlayground";
 
 const Playground: React.FC = () => {
   const [selectedGame, setSelectedGame] = useState<string | null>(null);
@@ -22,7 +23,7 @@ const Playground: React.FC = () => {
           {selectedGame ? (
             <GamePlayground game={selectedGame} />
           ) : (
-            <div className="text-center text-lg text-gray-500">Select a game to play</div>
+            <div className="text-center text-lg text-gray-500">Select a game </div>
           )}
         </div>
       </section>

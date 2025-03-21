@@ -58,7 +58,7 @@ const TicTacToe = () => {
 
     return (
         <div className="text-center p-6">
-            <h2 className="text-xl mb-4">{winner ? `Winner: ${winner}` : `Player ${isXNext ? 'X' : 'O'}'s Turn`}</h2>
+            <h2 className="text-xl mb-4">{winner ? `Winner: ${winner}` : `Player ${isXNext ? 'X' : 'O'} Turn`}</h2>
             {/* Game Area */}
             <div className="inline-block border-2 border-gray-800">
              {board.map((row, rowIndex) => (
