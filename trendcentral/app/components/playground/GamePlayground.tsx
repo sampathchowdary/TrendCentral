@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 // games
-import TicTacToe from './TicTacToe';
+// import TicTacToe from './TicTacToe';
+const TicTacToe = React.lazy(() => import('./TicTacToe'))
 
 interface GamePlaygroundProps {
   game: string;
@@ -11,7 +12,11 @@ const GamePlayground: React.FC<GamePlaygroundProps> = ({ game }) => {
     let gameComponent = null
 
     if(game === 'TicTacToe') {
-        gameComponent = <TicTacToe />
+        gameComponent = (
+          <Suspense fallback={<p> Loading... Tic Tac Toe</p>}>
+            <TicTacToe />
+          </Suspense>
+        )
     }
   return (
     <div>
