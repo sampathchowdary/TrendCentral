@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react';
-import ConditionalRendering from './ConditionalRendering';
 
 // games
 // import TicTacToe from './TicTacToe';
 const TicTacToe = React.lazy(() => import('./TicTacToe'))
 const Counter = React.lazy(() => import('./Counter'))
 const ContactForm = React.lazy(() => import('./ContactForm'))
+const ConditionalRendering = React.lazy(() => import('./ConditionalRendering'))
 
 interface GamePlaygroundProps {
   game: string;
