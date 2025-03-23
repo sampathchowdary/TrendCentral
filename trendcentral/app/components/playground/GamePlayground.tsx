@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react';
-import Counter from './Counter';
 
 // games
 // import TicTacToe from './TicTacToe';
 const TicTacToe = React.lazy(() => import('./TicTacToe'))
+const Counter = React.lazy(() => import('./Counter'))
+const ContactForm = React.lazy(() => import('./ContactForm'))
 
 interface GamePlaygroundProps {
   game: string;
@@ -26,6 +27,13 @@ const GamePlayground: React.FC<GamePlaygroundProps> = ({ game }) => {
         </Suspense>
       )
   }
+  if(game === 'ContactForm') {
+    gameComponent = (
+      <Suspense fallback={<p> Loading... Tic Tac Toe</p>}>
+        <ContactForm />
+      </Suspense>
+    )
+}
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-4">Now Playing: {game}</h2>
