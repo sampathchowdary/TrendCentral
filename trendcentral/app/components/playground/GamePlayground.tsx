@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import Accordion from './Accordion';
+import DragDrop from './DragDrop';
 
 // games
 // import TicTacToe from './TicTacToe';
@@ -49,6 +50,13 @@ const GamePlayground: React.FC<GamePlaygroundProps> = ({ game }) => {
         <Accordion />
       </Suspense>
     )
+}
+if(game === 'DragDrop') {
+  gameComponent = (
+    <Suspense fallback={<p> Loading... Tic Tac Toe</p>}>
+      <DragDrop />
+    </Suspense>
+  )
 }
   return (
     <div>
