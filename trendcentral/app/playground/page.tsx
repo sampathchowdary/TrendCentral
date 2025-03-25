@@ -8,7 +8,7 @@ import GamePlayground from "../components/playground/GamePlayground";
 const Playground: React.FC = () => {
   const [selectedGame, setSelectedGame] = useState<string | null>(null);
 
-  const gameNames = ['TicTacToe', 'Counter', 'ContactForm', 'ConditionalRendering'];
+  const gameNames = ['TicTacToe', 'Counter', 'ContactForm', 'ConditionalRendering', 'Accordion'];
 
   return (
     <div>

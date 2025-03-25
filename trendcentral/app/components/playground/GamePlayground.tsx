@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import Accordion from './Accordion';
 
 // games
 // import TicTacToe from './TicTacToe';
@@ -42,6 +43,13 @@ const GamePlayground: React.FC<GamePlaygroundProps> = ({ game }) => {
         </Suspense>
       )
   }
+  if(game === 'Accordion') {
+    gameComponent = (
+      <Suspense fallback={<p> Loading... Tic Tac Toe</p>}>
+        <Accordion />
+      </Suspense>
+    )
+}
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-4">Now Playing: {game}</h2>
