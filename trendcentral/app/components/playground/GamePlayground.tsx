@@ -1,9 +1,13 @@
 import React, { Suspense } from 'react';
-import Counter from './Counter';
+import Accordion from './Accordion';
+import DragDrop from './DragDrop';
 
 // games
 // import TicTacToe from './TicTacToe';
 const TicTacToe = React.lazy(() => import('./TicTacToe'))
+const Counter = React.lazy(() => import('./Counter'))
+const ContactForm = React.lazy(() => import('./ContactForm'))
+const ConditionalRendering = React.lazy(() => import('./ConditionalRendering'))
 
 interface GamePlaygroundProps {
   game: string;
@@ -26,6 +30,34 @@ const GamePlayground: React.FC<GamePlaygroundProps> = ({ game }) => {
         </Suspense>
       )
   }
+  if(game === 'ContactForm') {
+    gameComponent = (
+      <Suspense fallback={<p> Loading... Tic Tac Toe</p>}>
+        <ContactForm />
+      </Suspense>
+    )
+  }
+    if(game === 'ConditionalRendering') {
+      gameComponent = (
+        <Suspense fallback={<p> Loading... Tic Tac Toe</p>}>
+          <ConditionalRendering />
+        </Suspense>
+      )
+  }
+  if(game === 'Accordion') {
+    gameComponent = (
+      <Suspense fallback={<p> Loading... Tic Tac Toe</p>}>
+        <Accordion />
+      </Suspense>
+    )
+}
+if(game === 'DragDrop') {
+  gameComponent = (
+    <Suspense fallback={<p> Loading... Tic Tac Toe</p>}>
+      <DragDrop />
+    </Suspense>
+  )
+}
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-4">Now Playing: {game}</h2>
