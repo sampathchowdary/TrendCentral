@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// Define types for AccordionItem props
+// Define types for AccordionItem prop
 interface AccordionItemProps {
   title: string;
   content: string;
